@@ -1,5 +1,11 @@
 Ophion multibot.
 
 Config:
-	bot.py (top)
-	classes.py (class Cache)
+    bot.py (top)
+    classes.py (class Cache)
+
+Chat (suggestions/comments/whatever):
+    irc.quakenet.org #mustis.dev
+
+In action:
+    irc.quakenet.org #jobbig

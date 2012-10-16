@@ -4,7 +4,7 @@
 ### Ophion Bot
 ### v1.00
 ### Copyright 2012 John Runyon
-### <http://inaccurate.us/ophion/>
+### <https://github.com/Mustis/Ophion>
 ###
 
 ## CONFIG
