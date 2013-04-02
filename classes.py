@@ -238,7 +238,7 @@ class Cache:
 		except: return False
 		else: return True
 
-	def hookcmd(self, cmd, level, func, params, helpfunc, isadmin=False, reqchan=True):
+	def hookcmd(self, cmdname, level, cmdcallback, minparams, helpcallback, isadmin=False, reqchan=True):
 		self.cmds[cmd.upper()] = {'module': cache.currmod, 'func': func, 'level': level, 'params': params, 'helpfunc': helpfunc, 'isadmin': isadmin, 'reqchan': reqchan}
 	def unhookcmd(self, cmd):
 		try: del self.cmds[cmd]

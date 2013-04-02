@@ -6,7 +6,7 @@ author = 'John Runyon'
 version = '1'
 def init(cache):
 	cache.currmod = __name__
-#cache.hookcmd('COMMAND',level,cmdfn,params,helpfn,isadmin=False,reqchan=True)
+#cache.hookcmd(str cmdname, int level, func cmdcallback, int minparams, func helpcallback, bool isadmin=False, bool reqchan=True
 	cache.hookcmd('FOO', 0, foo, 0, helpfoo)
 	cache.hookcmd('BAR', 1, bar, 0, helpbar, isadmin=True)
 	cache.hookcmd('BAZ', 0, baz, 0, helpbaz, reqchan=False)
