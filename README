@@ -4,6 +4,9 @@ Config:
     bot.py (top)
     classes.py (class Cache)
 
+Pre-requisites:
+    Python, with MySQLdb library (pip install MySQL-python)
+
 Chat (suggestions/comments/whatever):
     irc.quakenet.org #mustis.dev
 

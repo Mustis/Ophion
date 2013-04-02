@@ -12,12 +12,12 @@ dbhost = 'localhost'
 dbuser = 'bot'
 dbpass = 'roboticism'
 dbname = 'bot'
-rootdir = '/home/ophion'
+rootdir = '/home/bots/'
 logfile = rootdir+'/output.log'
 excfile = rootdir+'/exception.log'
 
-oidfile = '/home/ophion/.oidentd.conf'
-identprefix = 'jobbig' # ident will be <identprefix><bot ID#>
+oidfile = '/home/bots/.oidentd.conf'
+identprefix = 'ophion' # ident will be <identprefix><bot ID#>
 
 import socket, select, sys, os, signal, time
 from threading import *

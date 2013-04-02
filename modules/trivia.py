@@ -22,7 +22,7 @@ def init(cache):
 	cache.trivia = {}
 
 	try:
-		qfile = open(cache.triviapath+"/questions.txt", 'r')
+		qfile = open(cache.moduledata+"/trivia/questions.txt", 'r')
 	except IOError as e:
 		print_exc(None, cache.excfile)
 		return True
@@ -30,7 +30,7 @@ def init(cache):
 	qfile.close()
 
 	try:
-		ptsfile = open(cache.triviapath+"/points.json", 'r')
+		ptsfile = open(cache.moduledata+"/trivia/points.json", 'r')
 	except IOError as e:
 		print_exc(None, cache.excfile)
 		return True
@@ -43,7 +43,7 @@ def deinit(cache, reloading=False):
 	global questions, points
 	cache.currmod = __name__
 
-	ptsfile = open(cache.triviapath+"/points.json", 'w')
+	ptsfile = open(cache.moduledata+"/trivia/points.json", 'w')
 	json.dump(points, ptsfile, indent=4)
 	ptsfile.close()
 

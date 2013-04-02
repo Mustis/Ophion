@@ -159,7 +159,8 @@ class Bot:
 		self.nick = row['nick']
 		self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-		self.s.bind((row['vhost'], 0))
+		if row['vhost'] is not None:
+			self.s.bind((row['vhost'], 0))
 		self.s.connect((row['irchost'], row['ircport']))
 		self.rawnow("NICK %s" % (self.nick))
 		self.rawnow("USER %s * * :%s" % (ident, row['realname']))
@@ -190,6 +191,20 @@ class Bot:
 	def __repr__(self): return "<Bot%d: %s>" % (self.id, self.nick)
 
 class Cache:
+	# config
+	lshost = '0.0.0.0'
+	lsport = 13245 
+	moduledata = '/home/bots/modules/'
+	trigger = '!'
+	cmsgs = { # %(id)d = bot id, %(msg)s = log message.
+		'debug':        "\00303[\037DEBUG\037][%(id)d]: %(msg)s",
+		'info':         "\00312[\037INFO\037][%(id)d]: %(msg)s",
+		'warn':         "\00306[\037WARN\037][%(id)d]: %(msg)s",
+		'fatal':        "\00304[\037FATAL\037][%(id)d]: %(msg)s",
+	}
+
+
+	# NOT config
 	dbc = None
 	ls = None
 	admins = {}
@@ -210,18 +225,6 @@ class Cache:
 
 	users = {}
 	chans = {}
-
-	## CONFIG
-	lshost = '0.0.0.0'
-	lsport = 13245
-	triviapath = '/home/ophion/modules/trivia/'
-	trigger = '!'
-	cmsgs = {
-		'debug':	"\00303[\037DEBUG\037][%(id)d]: %(msg)s",
-		'info':		"\00312[\037INFO\037][%(id)d]: %(msg)s",
-		'warn':		"\00306[\037WARN\037][%(id)d]: %(msg)s",
-		'fatal':	"\00304[\037FATAL\037][%(id)d]: %(msg)s",
-	}
 
 	def __init__(self):
 		global cache
